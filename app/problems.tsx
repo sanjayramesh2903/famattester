@@ -16,20 +16,22 @@ const questions = [
 ]
 
 const McqPage = () => {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const [score, setScore] = useState(0)
   const [questionIndex, setQuestionIndex] = useState(0)
 
   const handleAnswer = (option: string) => {
-    if (option === questions[questionIndex].answer) {
-      setScore(score + 1)
+    const isCorrect = option === questions[questionIndex].answer
+    const finalScore = isCorrect ? score + 1 : score
+
+    if (isCorrect) {
+      setScore(finalScore)
     }
+
     if (questionIndex < questions.length - 1) {
       setQuestionIndex(questionIndex + 1)
     } else {
-      alert(`Your score: ${score + 1} / ${questions.length}`)
+      alert(`Your score: ${finalScore} / ${questions.length}`)
     }
-    setSelectedAnswer(null)
   }
 
   return (
@@ -39,11 +41,7 @@ const McqPage = () => {
         <p>{questions[questionIndex].question}</p>
         <div>
           {questions[questionIndex].options.map((option, index) => (
-            <button
-              key={index}
-              onClick={() => handleAnswer(option)}
-              style={{ margin: '5px' }}
-            >
+            <button key={index} onClick={() => handleAnswer(option)} style={{ margin: '5px' }}>
               {option}
             </button>
           ))}

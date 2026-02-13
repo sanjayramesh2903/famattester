@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FAMAT Trivial
 
-## Getting Started
+A modern, trivia-style practice interface for Florida Association of Mu Alpha Theta (FAMAT) problem sets.
 
-First, run the development server:
+## Features
+
+- AMCTrivial-inspired one-problem-at-a-time flow.
+- Filter by FAMAT level (Junior, Intermediate, Algebra I, Geometry, Algebra II, Comprehensive).
+- Problem metadata shown per card: level, test, year, and question number.
+- Difficulty proxy based on question number within each test.
+- Bluish-black, sleek UI optimized for quick practice rounds.
+- GitHub Pages deployment pipeline included.
+
+## Problem data
+
+Problems are defined in:
+
+- `data/famatProblems.ts`
+
+Each record includes:
+
+- level
+- test name
+- year
+- question number
+- statement
+- answer
+- source URL
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build static output
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## GitHub Pages deployment
 
-## Learn More
+This repo includes `.github/workflows/deploy.yml` which:
 
-To learn more about Next.js, take a look at the following resources:
+1. Installs dependencies
+2. Builds the static Next.js export (`out/`)
+3. Publishes to GitHub Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To use it, enable GitHub Pages in repository settings and set the source to **GitHub Actions**.

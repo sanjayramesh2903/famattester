@@ -1,4 +1,4 @@
-export type FamatLevel = 'Junior' | 'Intermediate' | 'Algebra I' | 'Geometry' | 'Algebra II' | 'Comprehensive'
+export type FamatLevel = 'Calculus' | 'Precalculus' | 'Algebra I' | 'Geometry' | 'Algebra II' | 'Stats'
 
 export type FamatProblem = {
   id: string
@@ -12,194 +12,33 @@ export type FamatProblem = {
 }
 
 export const famatProblems: FamatProblem[] = [
-  {
-    id: 'jr-2023-4',
-    level: 'Junior',
-    test: 'Junior Regional Test',
-    year: 2023,
-    questionNumber: 4,
-    statement: 'If 3x + 5 = 26, what is x?',
-    answer: '7',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'jr-2023-11',
-    level: 'Junior',
-    test: 'Junior Regional Test',
-    year: 2023,
-    questionNumber: 11,
-    statement: 'A rectangle has area 84 and width 7. What is its length?',
-    answer: '12',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'jr-2022-18',
-    level: 'Junior',
-    test: 'Junior State Test',
-    year: 2022,
-    questionNumber: 18,
-    statement: 'Evaluate $2^5 - 3^2$.',
-    statement: 'Evaluate 2^5 - 3^2.',
-    answer: '23',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'int-2024-6',
-    level: 'Intermediate',
-    test: 'Intermediate Regional Test',
-    year: 2024,
-    questionNumber: 6,
-    statement: 'Find the value of 5(2x - 3) when x = 4.',
-    answer: '25',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'int-2024-12',
-    level: 'Intermediate',
-    test: 'Intermediate Regional Test',
-    year: 2024,
-    questionNumber: 12,
-    statement: 'What is the sum of the first 10 positive integers?',
-    answer: '55',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'int-2023-21',
-    level: 'Intermediate',
-    test: 'Intermediate State Test',
-    year: 2023,
-    questionNumber: 21,
-    statement: 'If a:b = 3:5 and a = 18, what is b?',
-    answer: '30',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'alg1-2024-5',
-    level: 'Algebra I',
-    test: 'Algebra I Regional Test',
-    year: 2024,
-    questionNumber: 5,
-    statement: 'Solve $x^2 - 9 = 0$.',
-    answer: '$x = \\pm 3$',
-    statement: 'Solve: x^2 - 9 = 0.',
-    answer: 'x = ±3',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'alg1-2024-14',
-    level: 'Algebra I',
-    test: 'Algebra I Regional Test',
-    year: 2024,
-    questionNumber: 14,
-    statement: 'The slope of a line is -2 and it passes through (1, 5). Find its equation in slope-intercept form.',
-    answer: 'y = -2x + 7',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'alg1-2023-24',
-    level: 'Algebra I',
-    test: 'Algebra I State Test',
-    year: 2023,
-    questionNumber: 24,
-    statement: 'Factor completely: x^2 + 7x + 12.',
-    answer: '(x + 3)(x + 4)',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'geo-2024-7',
-    level: 'Geometry',
-    test: 'Geometry Regional Test',
-    year: 2024,
-    questionNumber: 7,
-    statement: 'In a right triangle with legs 6 and 8, find the hypotenuse.',
-    answer: '10',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'geo-2024-16',
-    level: 'Geometry',
-    test: 'Geometry Regional Test',
-    year: 2024,
-    questionNumber: 16,
-    statement: 'What is the area of a circle with radius $4$?',
-    answer: '$16\\pi$',
-    statement: 'What is the area of a circle with radius 4?',
-    answer: '16π',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'geo-2023-23',
-    level: 'Geometry',
-    test: 'Geometry State Test',
-    year: 2023,
-    questionNumber: 23,
-    statement: 'A regular hexagon has side length 5. What is its perimeter?',
-    answer: '30',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'alg2-2024-9',
-    level: 'Algebra II',
-    test: 'Algebra II Regional Test',
-    year: 2024,
-    questionNumber: 9,
-    statement: 'Simplify $(x^3y^2)(x^2y^{-1})$.',
-    answer: '$x^5y$',
-    statement: 'Simplify: (x^3y^2)(x^2y^-1).',
-    answer: 'x^5y',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'alg2-2024-17',
-    level: 'Algebra II',
-    test: 'Algebra II Regional Test',
-    year: 2024,
-    questionNumber: 17,
-    statement: 'Solve for $x$: $\\log_2(x) = 5$.',
-    statement: 'Solve for x: log2(x) = 5.',
-    answer: '32',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'alg2-2023-25',
-    level: 'Algebra II',
-    test: 'Algebra II State Test',
-    year: 2023,
-    questionNumber: 25,
-    statement: 'Find the vertex of $y = x^2 - 6x + 2$.',
-    statement: 'Find the vertex of y = x^2 - 6x + 2.',
-    answer: '(3, -7)',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'comp-2024-10',
-    level: 'Comprehensive',
-    test: 'Comprehensive Regional Test',
-    year: 2024,
-    questionNumber: 10,
-    statement: 'If f(x) = 2x + 1 and g(x) = x^2, find f(g(3)).',
-    answer: '19',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'comp-2024-20',
-    level: 'Comprehensive',
-    test: 'Comprehensive Regional Test',
-    year: 2024,
-    questionNumber: 20,
-    statement: 'How many permutations of the letters in MATH are possible?',
-    answer: '24',
-    sourceUrl: 'https://famat.org/',
-  },
-  {
-    id: 'comp-2023-30',
-    level: 'Comprehensive',
-    test: 'Comprehensive State Test',
-    year: 2023,
-    questionNumber: 30,
-    statement: 'Evaluate the determinant $\\begin{vmatrix}1 & 2\\\\3 & 4\\end{vmatrix}$.',
-    statement: 'Evaluate the determinant of [[1,2],[3,4]].',
-    answer: '-2',
-    sourceUrl: 'https://famat.org/',
-  },
+  { id: "Alg1-2026-1"
+level: "Algebra I"
+test: "January Regional Individual Test"
+year: 2026
+questionNumber: 1
+statement: "A three-digit number is written as abc where a, b, and c are digits. What is a × b − c?"
+answer: "NOTA"
+sourceUrl: "https://drive.google.com/drive/folders/1_oiJyH5CS8G_S9MeC4RB1x7hFZifg1Yl"
+},
+{
+  id: "Alg1-2026-2"
+level: "Algebra I"
+test: "January Regional Individual Test"
+year: 2026
+questionNumber: 2
+statement: "If 60% of N = 30, then what is 50% of N?"
+answer: "25"
+sourceUrl: "https://drive.google.com/drive/folders/1_oiJyH5CS8G_S9MeC4RB1x7hFZifg1Yl"
+},
+{
+  id: "Alg1-2026-3"
+level: "Algebra I"
+test: "January Regional Individual Test"
+year: 2026
+questionNumber: 3
+statement: "The sum of nine consecutive positive integers is 99. What is the difference between the largest and smallest of the nine integers?"
+answer: "8"
+sourceUrl: "https://drive.google.com/drive/folders/1_oiJyH5CS8G_S9MeC4RB1x7hFZifg1Yl"
+}
 ]

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -13,6 +14,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <body>
+        <Script
+          id="mathjax-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: { fontCache: 'global' }
+};`,
+          }}
+        />
+        <Script
+          id="mathjax-script"
+          strategy="afterInteractive"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+        />
+        {children}
+      </body>
       <body>{children}</body>
     </html>
   )

@@ -1,9 +1,18 @@
 'use client'
 
+import { useEffect, useMemo, useState } from 'react'
 import { useMemo, useState } from 'react'
 import { famatProblems, type FamatLevel } from '@/data/famatProblems'
 
 const levels: FamatLevel[] = ['Junior', 'Intermediate', 'Algebra I', 'Geometry', 'Algebra II', 'Comprehensive']
+
+declare global {
+  interface Window {
+    MathJax?: {
+      typesetPromise?: (elements?: Element[]) => Promise<void>
+    }
+  }
+}
 
 export default function HomePage() {
   const [selectedLevel, setSelectedLevel] = useState<FamatLevel | 'All'>('All')
@@ -20,6 +29,15 @@ export default function HomePage() {
   }, [selectedLevel])
 
   const current = filtered[index] ?? filtered[0]
+
+  useEffect(() => {
+    const container = document.getElementById('problem-card')
+    if (!container || !window.MathJax?.typesetPromise) return
+
+    window.MathJax.typesetPromise([container]).catch(() => {
+      // noop: keep UI usable even if MathJax fails in the environment
+    })
+  }, [current, showAnswer])
 
   const setLevel = (value: FamatLevel | 'All') => {
     setSelectedLevel(value)
@@ -62,6 +80,7 @@ export default function HomePage() {
         ))}
       </section>
 
+      <section className="card" id="problem-card">
       <section className="card">
         {current ? (
           <>
@@ -71,6 +90,12 @@ export default function HomePage() {
               <span>{current.year}</span>
               <span>Q{current.questionNumber}</span>
             </div>
+            <h2 className="math-text">{current.statement}</h2>
+            {showAnswer ? (
+              <p className="answer math-text">Answer: {current.answer}</p>
+            ) : (
+              <p className="answer hidden">Answer hidden</p>
+            )}
             <h2>{current.statement}</h2>
             {showAnswer ? <p className="answer">Answer: {current.answer}</p> : <p className="answer hidden">Answer hidden</p>}
             <div className="button-row">

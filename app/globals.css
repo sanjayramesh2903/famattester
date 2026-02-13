@@ -135,3 +135,12 @@ h2 {
   color: #9cb6df;
   margin-top: 0.9rem;
 }
+
+
+.math-text {
+  overflow-x: auto;
+}
+
+.math-text mjx-container {
+  max-width: 100%;
+}

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { famatProblems, type FamatLevel } from '@/data/famatProblems'
 
 const levels: FamatLevel[] = ['Junior', 'Intermediate', 'Algebra I', 'Geometry', 'Algebra II', 'Comprehensive']
@@ -80,6 +81,7 @@ export default function HomePage() {
       </section>
 
       <section className="card" id="problem-card">
+      <section className="card">
         {current ? (
           <>
             <div className="meta-row">
@@ -94,6 +96,8 @@ export default function HomePage() {
             ) : (
               <p className="answer hidden">Answer hidden</p>
             )}
+            <h2>{current.statement}</h2>
+            {showAnswer ? <p className="answer">Answer: {current.answer}</p> : <p className="answer hidden">Answer hidden</p>}
             <div className="button-row">
               <button onClick={() => setShowAnswer((prev) => !prev)}>{showAnswer ? 'Hide Answer' : 'Reveal Answer'}</button>
               <button onClick={nextQuestion}>Next</button>

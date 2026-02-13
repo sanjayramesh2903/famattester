@@ -61,6 +61,34 @@ npm run dev
 
 ## Build static output
 
+- Bluish-black, sleek UI optimized for quick practice rounds.
+- GitHub Pages deployment pipeline included.
+
+## Problem data
+
+Problems are defined in:
+
+- `data/famatProblems.ts`
+
+Each record includes:
+
+- level
+- test name
+- year
+- question number
+- statement
+- answer
+- source URL
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build static output
+
 ```bash
 npm run build
 ```

@@ -3,19 +3,144 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at 20% 10%, #1d3f8c 0%, #091226 36%, #05070e 100%);
+  color: #e8f1ff;
+}
+
+.app-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #7eb6ff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.hero p {
+  color: #bfd5ff;
+  max-width: 62ch;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.pill {
+  border: 1px solid #2a3f6f;
+  background: rgba(13, 24, 48, 0.75);
+  color: #e8f1ff;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.pill.active {
+  background: linear-gradient(120deg, #1f6fff, #3f8cff);
+  border-color: #7eb6ff;
+}
+
+.card {
+  background: rgba(8, 14, 29, 0.82);
+  border: 1px solid #22365f;
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.9rem;
+}
+
+.meta-row span {
+  background: rgba(66, 117, 204, 0.2);
+  border: 1px solid #2d4d83;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  color: #bdd7ff;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: 650;
+}
+
+.answer {
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: rgba(23, 46, 90, 0.5);
+  border: 1px solid #325391;
+}
+
+.answer.hidden {
+  color: #8ea3c7;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.button-row button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #051125;
+  background: #9fccff;
+}
+
+.source-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: #8dc2ff;
+}
+
+.footer-note {
+  color: #9cb6df;
+  margin-top: 0.9rem;
+}
+
+
+.math-text {
+  overflow-x: auto;
+}
+
+.math-text mjx-container {
+  max-width: 100%;
 }

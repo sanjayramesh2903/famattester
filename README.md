@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FAMAT Trivial
 
-## Getting Started
+A modern, trivia-style practice interface for Florida Association of Mu Alpha Theta (FAMAT) problem sets.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- AMCTrivial-inspired one-problem-at-a-time flow.
+- Filter by FAMAT level (Junior, Intermediate, Algebra I, Geometry, Algebra II, Comprehensive).
+- Problem metadata shown per card: level, test, year, and question number.
+- Difficulty proxy based on question number within each test.
+- LaTeX rendering support for problem statements and answers via MathJax.
+- Bluish-black, sleek UI optimized for quick practice rounds.
+- GitHub Pages deployment pipeline included.
+
+## Problem data
+
+Problems are defined in:
+
+- `data/famatProblems.ts`
+
+Each record includes:
+
+- level
+- test name
+- year
+- question number
+- statement
+- answer
+- source URL
+
+### Adding problems manually (with source + LaTeX)
+
+Add a new object to `famatProblems`:
+
+```ts
+{
+  id: 'geo-2025-12',
+  level: 'Geometry',
+  test: 'Geometry Regional Test',
+  year: 2025,
+  questionNumber: 12,
+  statement: 'Compute $\\frac{1}{2}\\cdot 10 \\cdot 8$.',
+  answer: '$40$',
+  sourceUrl: 'https://famat.org/path/to/exact/source.pdf',
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+LaTeX delimiters supported:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Inline: `$...$` or `\(...\)`
+- Display: `$$...$$` or `\[...\]`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+When you save, the randomizer and filters automatically include the new problem.
 
-## Learn More
+## Local development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build static output
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+## GitHub Pages deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repo includes `.github/workflows/deploy.yml` which:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Installs dependencies
+2. Builds the static Next.js export (`out/`)
+3. Publishes to GitHub Pages
+
+To use it, enable GitHub Pages in repository settings and set the source to **GitHub Actions**.

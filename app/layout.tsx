@@ -1,13 +1,19 @@
-'use client'
+import type { Metadata } from 'next'
+import './globals.css'
 
-import Nav from '../components/Nav'
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div>
-      <Nav />
-      <main>{children}</main>
-    </div>
-  )
+export const metadata: Metadata = {
+  title: 'FAMAT Trivial',
+  description: 'FAMAT problem trainer in a trivia-style format',
 }
 
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
+}
